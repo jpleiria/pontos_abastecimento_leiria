@@ -35,4 +35,4 @@ function corrigirInterface(root=document.body){const walker=document.createTreeW
 corrigirInterface();new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{if(n.nodeType===1)corrigirInterface(n);else if(n.nodeType===3)n.nodeValue=corrigirTexto(n.nodeValue)}))).observe(document.body,{childList:true,subtree:true});
 </script><script>
 document.head.insertAdjacentHTML('beforeend',`<style>@media(max-width:720px){header p{display:block!important;font-size:12px!important;margin-top:3px!important}}</style>`);
-</script><script>document.head.insertAdjacentHTML('beforeend',`<style>.app-footer{height:60px!important}body{padding-bottom:60px!important}@media(max-width:720px){.app-footer{height:60px!important}}</style>`);</script></body></html>
+</script><script>document.head.insertAdjacentHTML('beforeend',`<style>.app-footer{height:42px!important;font-size:9px!important;line-height:1.15!important;opacity:.9}.app-footer strong{font-size:10px!important}body{padding-bottom:42px!important}@media(max-width:720px){.app-footer{height:42px!important}}</style>`);</script></body></html>

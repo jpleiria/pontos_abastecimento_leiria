@@ -29,4 +29,8 @@ document.head.insertAdjacentHTML('beforeend',`<style>.app-footer{position:fixed;
 const footer=document.querySelector('.app-footer');if(footer)footer.innerHTML='<div><strong>SubChefe 2\u00aa - Jo\u00e3o Paulo Pereira</strong>Companhia Bombeiros Sapadores Leiria</div>';
 </script><script>
 document.head.insertAdjacentHTML('beforeend',`<style>html{margin:0!important;padding:0!important;background:#12212b}body{margin:0!important;padding:0 0 46px!important}header{margin-top:0!important}</style>`);
+</script><script>
+const corrigirTexto=texto=>{if(!/[ÃÂ]/.test(texto))return texto;try{return decodeURIComponent(escape(texto))}catch{return texto}};
+function corrigirInterface(root=document.body){const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){const corrigido=corrigirTexto(node.nodeValue);if(corrigido!==node.nodeValue)node.nodeValue=corrigido}}
+corrigirInterface();new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{if(n.nodeType===1)corrigirInterface(n);else if(n.nodeType===3)n.nodeValue=corrigirTexto(n.nodeValue)}))).observe(document.body,{childList:true,subtree:true});
 </script></body></html>
